@@ -1,0 +1,293 @@
+/*
+ *	IanniX Score File
+ */
+
+
+/*
+ *	This method is called first.
+ *	It is the good section for asking user for script global variables (parameters).
+ *	
+ * 	This section is never overwritten by IanniX when saving.
+ */
+function askUserForParameters() {
+	//title("The title of the parameter box");
+	//ask("Group name of the parameter (only for display purposes)", "Parameter label", "myGlobalVar", "theDefaultValue");
+}
+
+
+/*
+ *	This method stores all the operations made through IanniX scripts.
+ *	You can add some commands here to make your own scripts!
+ *	Scripts are written in Javascript but even with a limited knowledge of Javascript, many types of useful scripts can be created.
+ *	
+ *	Beyond the standard javascript commands, the run() function is used to send commands to IanniX.
+ *	Commands must be provided to run() as a single string.
+ *	For example, run("zoom 100"); sets the display zoom to 100%.
+ *	
+ *	To combine numeric parameters with text commands to produce a string, use the concatenation operator.
+ *	In the following example center_x and center_y are in numeric variables and must be concatenated to the command string.
+ *	Example: run("setPos current " + center_x + " " + center_y + " 0");
+ *	
+ *	To learn IanniX commands, perform an manipulation in IanniX graphical user interface, and see the Helper window.
+ *	You'll see the syntax of the command-equivalent action.
+ *	
+ *	And finally, remember that most of commands must target an object.
+ *	Global syntax is always run("<command name> <target> <arguments>");
+ *	Targets can be an ID (number) or a Group ID (string name of group) (please see "Info" tab in Inspector panel).
+ *	Special targets are "current" (last used ID), "all" (all the objects) and "lastCurve" (last used curve).
+ *	
+ * 	This section is never overwritten by IanniX when saving.
+ */
+function makeWithScript() {
+	//Clears the score
+	run("clear");
+	//Resets rotation
+	run("rotate 0 0 0");
+	//Resets score viewport center
+	run("center 0 0");
+	//Resets score zoom
+	run("zoom 100");
+}
+
+
+/*
+ *	When an incoming message is received, this method is called.
+ *		- <protocol> tells information about the nature of message ("osc", "midi", "direct…)
+ *		- <host> and <port> gives the origin of message, specially for IP protocols (for OpenSoundControl, UDP or TCP, it is the IP and port of the application that sends the message)
+ *		- <destination> is the supposed destination of message (for OpenSoundControl it is the path, for MIDI it is Control Change or Note on/off…)
+ *		- <values> are an array of arguments contained in the message
+ *	
+ * 	This section is never overwritten by IanniX when saving.
+ */
+function onIncomingMessage(protocol, host, port, destination, values) {
+	//Logs a message in the console (open "Config" tab from Inspector panel and see "Message log")
+	console("Received on '" + protocol + "' (" + host + ":" + port + ") to '" + destination + "', " + values.length + " values : ");
+	
+	//Browses all the arguments and displays them in log window
+	for(var valueIndex = 0 ; valueIndex < values.length ; valueIndex++)
+		console("- arg " + valueIndex + " = " + values[valueIndex]);
+}
+
+
+/*
+ *	This method stores all the operations made through the graphical user interface.
+ *	You are not supposed to modify this section, but it can be useful to remove some stuff that you added accidentaly.
+ *	
+ * 	Be very careful! This section is automaticaly overwritten when saving a score.
+ */
+function madeThroughGUI() {
+//GUI: NEVER EVER REMOVE THIS LINE
+	run("zoom 108");
+	run("rotate 0 0 0");
+	run("speed 1");
+	run("center -0.102482 0.16397");
+
+	run("registertexture background -3.80606  4 3.80606 -4 ../../mestrado_glerm/WuLi.png");
+
+	run("add curve 1");
+	run("setpos current -3.35951 0.351854 0");
+	var points1 = [
+		{x: 0.0318832, y: 0.318832, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 1.12351, y: -3.53752, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 2.28952, y: -0.688526, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.0318832, y: 0.318832, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points1.length ; i++)
+		run("setpointat current " + i + " " + points1[i].x + " " + points1[i].y + " " + points1[i].z + " " + points1[i].c1x + " " + points1[i].c1y + " " + points1[i].c1z + " " + points1[i].c2x + " " + points1[i].c2y + " " + points1[i].c2z);
+	run("add cursor 2");
+	run("setcurve current lastCurve");
+	run("setpos current -1.68292 -1.8343 0");
+	run("setpattern current 24 0 1");
+	run("setcoloractive current 80 255 17 255");
+	run("setcolorinactive current 85 85 0 255");
+	run("setspeedf current 0.1");
+	run("settimepercent current 0.860771375433916");
+	run("settime current 8.22762390021597");
+
+
+	run("add curve 3");
+	run("setpos current -0.431562 3.22818 0");
+	var points3 = [
+		{x: 0.239124, y: 0.350715, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 1.10832, y: -3.67872, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -0.52, y: -3.54435, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -3.13974, y: -2.51725, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -1.32543, y: -1.35504, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.239124, y: 0.350715, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points3.length ; i++)
+		run("setpointat current " + i + " " + points3[i].x + " " + points3[i].y + " " + points3[i].z + " " + points3[i].c1x + " " + points3[i].c1y + " " + points3[i].c1z + " " + points3[i].c2x + " " + points3[i].c2y + " " + points3[i].c2z);
+	run("add cursor 4");
+	run("setcurve current lastCurve");
+	run("setpos current -0.192438 3.57889 0");
+	run("setpattern current 0 0 1");
+	run("setcoloractive current 255 0 0 255");
+	run("setcolorinactive current 131 101 97 255");
+	run("settime current 22.800999999999");
+
+
+	run("add curve 5");
+	run("setpos current -0.14765 3.64038 0");
+	var points5 = [
+		{x: 0, y: 0, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 2.88543, y: -1.60935, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 1.16905, y: -2.91124, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.781898, y: -4.15317, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0, y: 0, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points5.length ; i++)
+		run("setpointat current " + i + " " + points5[i].x + " " + points5[i].y + " " + points5[i].z + " " + points5[i].c1x + " " + points5[i].c1y + " " + points5[i].c1z + " " + points5[i].c2x + " " + points5[i].c2y + " " + points5[i].c2z);
+	run("add cursor 6");
+	run("setcurve current lastCurve");
+	run("setpos current -0.14765 3.64038 0");
+	run("setpattern current 0 0 1");
+	run("setcoloractive current 255 11 223 255");
+	run("setcolorinactive current 97 67 88 255");
+	run("settime current 22.800999999999");
+
+
+	run("add curve 7");
+	run("setpos current 2.48879 1.58847 0");
+	var points7 = [
+		{x: 0.18219, y: 0.330219, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 1.17133, y: -1.5729, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -0.610336, y: -3.6863, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -1.76496, y: -2.03066, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -1.44613, y: -0.838832, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.18219, y: 0.330219, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points7.length ; i++)
+		run("setpointat current " + i + " " + points7[i].x + " " + points7[i].y + " " + points7[i].z + " " + points7[i].c1x + " " + points7[i].c1y + " " + points7[i].c1z + " " + points7[i].c2x + " " + points7[i].c2y + " " + points7[i].c2z);
+	run("add cursor 8");
+	run("setcurve current lastCurve");
+	run("setpos current 2.67098 1.91869 0");
+	run("setpattern current 0 0 1");
+	run("settime current 22.800999999999");
+
+
+	run("add curve 25");
+	run("setpos current -2.14366 -3.17208 0");
+	var points25 = [
+		{x: 0, y: 0, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 2.39632, y: -0.537637, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points25.length ; i++)
+		run("setpointat current " + i + " " + points25[i].x + " " + points25[i].y + " " + points25[i].z + " " + points25[i].c1x + " " + points25[i].c1y + " " + points25[i].c1z + " " + points25[i].c2x + " " + points25[i].c2y + " " + points25[i].c2z);
+	run("add cursor 26");
+	run("setcurve current lastCurve");
+	run("setpos current 0.25266 -3.70972 0");
+	run("settime current 22.800999999999");
+
+
+	run("add curve 9");
+	run("setpos current -0.226599 -1.73726 0");
+	var points9 = [
+		{x: -0.36362, y: 0.307445, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.492672, y: -1.97449, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 2.10277, y: -0.389431, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.941314, y: 1.30721, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: -0.36362, y: 0.307445, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points9.length ; i++)
+		run("setpointat current " + i + " " + points9[i].x + " " + points9[i].y + " " + points9[i].z + " " + points9[i].c1x + " " + points9[i].c1y + " " + points9[i].c1z + " " + points9[i].c2x + " " + points9[i].c2y + " " + points9[i].c2z);
+	run("add cursor 10");
+	run("setcurve current lastCurve");
+	run("setpos current -0.590219 -1.42982 0");
+	run("setpattern current 0 0 1");
+	run("settimepercent current 1");
+	run("settime current 23.2645479114103");
+
+
+	run("add curve 11");
+	run("setpos current -0.959912 -0.307825 0");
+	var points11 = [
+		{x: 0, y: 0, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0.421313, y: -1.07796, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 1.67007, y: -0.0986864, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+		{x: 0, y: 0, z: 0, c1x: 0, c1y: 0, c1z: 0, c2x: 0, c2y: 0, c2z: 0},
+	];
+	for(var i = 0 ; i < points11.length ; i++)
+		run("setpointat current " + i + " " + points11[i].x + " " + points11[i].y + " " + points11[i].z + " " + points11[i].c1x + " " + points11[i].c1y + " " + points11[i].c1z + " " + points11[i].c2x + " " + points11[i].c2y + " " + points11[i].c2z);
+	run("add cursor 12");
+	run("setcurve current lastCurve");
+	run("setpos current -0.959912 -0.307825 0");
+	run("setpattern current 34 0 1");
+	run("setspeedf current 3");
+	run("settime current 68.4030000000021");
+
+
+	run("add trigger 17");
+	run("setpos current 3.60773 -0.0474452 0");
+
+	run("add trigger 18");
+	run("setpos current -1.00774 -0.243299 0");
+
+	run("add trigger 19");
+	run("setpos current -2.19652 -3.11811 0");
+
+	run("add trigger 20");
+	run("setpos current -0.561372 -1.3167 0");
+	run("setlabel current t");
+
+	run("add trigger 21");
+	run("setpos current 0.71092 -0.474831 0");
+
+	run("add trigger 22");
+	run("setpos current 0.962949 0.630453 0");
+
+	run("add trigger 23");
+	run("setpos current 1.95588 -2.14642 0");
+
+	run("add trigger 24");
+	run("setpos current 0.230395 -3.76032 0");
+
+	run("add trigger 13");
+	run("setpos current -3.45364 0.712438 0");
+
+	run("add trigger 14");
+	run("setpos current -1.7327 1.96651 0");
+
+	run("add trigger 15");
+	run("setpos current -0.196993 3.72312 0");
+
+	run("add trigger 16");
+	run("setpos current 2.74233 1.96499 0");
+
+
+
+//GUI: NEVER EVER REMOVE THIS LINE
+}
+
+
+/*
+ *	This method stores all the operations made by other softwares through one of the IanniX interfaces.
+ *	You are not supposed to modify this section, but it can be useful to remove some stuff that you or a third party software added accidentaly.
+ *	
+ * 	Be very careful! This section is automaticaly overwritten when saving a score.
+ */
+function madeThroughInterfaces() {
+//INTERFACES: NEVER EVER REMOVE THIS LINE
+	run("speed 1");
+
+
+//INTERFACES: NEVER EVER REMOVE THIS LINE
+}
+
+
+/*
+ *	This method is called last.
+ *	It allows you to modify your hand-drawn score (made through graphical user interface).
+ *	
+ * 	This section is never overwritten by IanniX when saving.
+ */
+function alterateWithScript() {
+	
+}
+
+
+/*
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ *	Made with IanniX 0.9.16
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ */
+
